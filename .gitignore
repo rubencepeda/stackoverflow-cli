@@ -1,0 +1,61 @@
+target/
+build
+*/src/generated
+.gradle
+## IntelliJ
+/.idea/*
+!/.idea/codeInsightSettings.xml
+
+*.iml
+.DS_Store
+*/out/
+
+## Temp
+dependency-reduced-pom.xml
+
+.jpb/
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control using negated pattern
+# !example_override.tf
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+terraform/.terraform.lock.hcl
+
+*.tfplan
+
+*.ipr
+*.iws
+
+.ideaDataSources/
+dataSources/
+out/
+
+# Ignore local cloud credentials file
+**/dev-cloud-storage-config.json
+
+squarespace-payments-core/src/main/resources/db/prod-main-db-app-user-key.json
+squarespace-payments-core/src/main/resources/db/stage-main-db-app-user-service-account-key.json
