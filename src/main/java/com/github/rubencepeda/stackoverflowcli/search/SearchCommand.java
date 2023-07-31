@@ -1,5 +1,9 @@
 package com.github.rubencepeda.stackoverflowcli.search;
 
+import com.github.rubencepeda.stackoverflowcli.api.ApiResponse;
+import com.github.rubencepeda.stackoverflowcli.api.Question;
+import com.github.rubencepeda.stackoverflowcli.api.StackOverflowHttpClient;
+
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
@@ -21,9 +25,18 @@ public class SearchCommand implements Runnable {
   @Option(names = {"-v", "--verbose"}, description = "Verbose output.")
   private boolean verbose;
 
+
+  private final StackOverflowHttpClient stackOverflowHttpClient;
+
+  public SearchCommand(StackOverflowHttpClient stackOverflowHttpClient) {
+    this.stackOverflowHttpClient = stackOverflowHttpClient;
+  }
+
   @Override
   public void run() {
-    System.out.println("Search command running...");
+    final ApiResponse<Question> response = stackOverflowHttpClient.search(query, tag, limit, sort);
+
+    response.items().forEach(System.out::println);
   }
 
 }
